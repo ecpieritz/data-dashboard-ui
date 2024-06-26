@@ -18,6 +18,7 @@
 - Typescript
 - Material UI
 - ChartsJS
+- NextAuth
 
 ---
 
