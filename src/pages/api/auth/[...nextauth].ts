@@ -1,20 +1,20 @@
-import NextAuth, {NextAuthOptions} from "next-auth"
-import GooleProvider from "next-auth/providers/google"
+import NextAuth, { NextAuthOptions } from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
   providers: [
-    GooleProvider(options: {
+    GoogleProvider({
       clientId: process.env.GOOGLE_ID as string,
       clientSecret: process.env.GOOGLE_SECRET as string,
-      authrization: {
+      authorization: {
         params: {
           prompt: "consent",
           access_type: "offline",
-          response_type: "code"
-        }
-      }
+          response_type: "code",
+        },
+      },
     }),
-  ]
-}
+  ],
+};
 
 export default NextAuth(authOptions);
